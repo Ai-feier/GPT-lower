@@ -4,9 +4,9 @@
 
 效果展示
 
-![幻灯片1.PNG](C:\Users\AiFeier\Desktop\GPT-lower\accets\幻灯片1.PNG)
+![幻灯片1.PNG](accets\幻灯片1.PNG)
 
-![幻灯片2.PNG](C:\Users\AiFeier\Desktop\GPT-lower\accets\幻灯片2.PNG)
+![幻灯片2.PNG](accets\幻灯片2.PNG)
 
 ![幻灯片3.PNG](accets\幻灯片3.PNG)
 
