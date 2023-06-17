@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chatglm</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body>
+
+<nav class="navigation">
+  <ul class="navigation-links">
+    <li class="nav-item">
+      <a class="nav-link" href="http://localhost:8000/to_chatgpt2/">Gpt2_Lccc</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://localhost:8000/to_blender/">Blender_Bot</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://localhost:8000/to_load_chatglm/">加载Chatglm模型</a>
+    </li>
+  </ul>
+</nav>
+<div class="chat-container">
+    <div class="chat-header">
+        <h1>Chatglm</h1>
+    </div>
+    <div class="chat-history">
+        <div class="message from-user">
+        </div>
+        <div class="message from-bot">
+            <p>这里是清华大学开源中文版ChatGPT模型——ChatGLM-6B-int4</p>
+        </div>
+    </div>
+    <form class="chat-form" onsubmit="return sendMessage()">
+        <input type="text" placeholder="Type your message...">
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+
+<script>
+    function sendMessage() {
+        // 获取用户输入的消息
+        const userInput = document.querySelector('.chat-form input').value;
+
+        // 发送用户消息到聊天历史
+        appendMessage('user', userInput, () => {
+            // 调用机器人回复函数，并将用户输入作为参数
+            const botReply = getBotReply(userInput);
+
+
+            // 模拟延迟，以模拟机器人的回复时间
+            setTimeout(() => {
+                // 发送机器人回复到聊天历史
+                appendMessage('bot', botReply.bot_reply, null);
+            }, 1000); // 假设延迟1秒钟
+        });
+
+        // 清空输入框
+        document.querySelector('.chat-form input').value = '';
+
+        return false;
+    }
+
+    function appendMessage(sender, message, callback) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+        messageElement.classList.add(`from-${sender}`);
+        messageElement.innerHTML = `<p>${message}</p>`;
+        const chatHistory = document.querySelector('.chat-history');
+        chatHistory.appendChild(messageElement);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+
+        if (callback) {
+            callback();
+        }
+    }
+
+    function getBotReply(userInput) {
+        // AJAX请求
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/chatglm/');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                // 处理机器人的回复
+                const botReply = JSON.parse(xhr.response);
+                appendMessage('bot', botReply.bot_reply, null);
+            } else {
+                // 处理请求错误
+                console.error('Request failed.  Returned status of ' + xhr.status);
+            }
+        };
+
+        xhr.send(JSON.stringify({'user_input': userInput}));
+    }
+
+
+</script>
+</body>
+</html>
