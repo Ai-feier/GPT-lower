@@ -8,12 +8,12 @@
 
 ![幻灯片2.PNG](C:\Users\AiFeier\Desktop\GPT-lower\accets\幻灯片2.PNG)
 
-![幻灯片3.PNG](C:\Users\AiFeier\Desktop\GPT-lower\accets\幻灯片3.PNG)
+![幻灯片3.PNG](accets\幻灯片3.PNG)
 
-![幻灯片4.PNG](C:\Users\AiFeier\Desktop\GPT-lower\accets\幻灯片4.PNG)
+![幻灯片4.PNG](accets\幻灯片4.PNG)
 
-![幻灯片5.PNG](C:\Users\AiFeier\Desktop\GPT-lower\accets\幻灯片5.PNG)
+![幻灯片5.PNG](accets\幻灯片5.PNG)
 
-![幻灯片6.PNG](C:\Users\AiFeier\Desktop\GPT-lower\accets\幻灯片6.PNG)
+![幻灯片6.PNG](accets\幻灯片6.PNG)
 
-![幻灯片7.PNG](C:\Users\AiFeier\Desktop\GPT-lower\accets\幻灯片7.PNG)
+![幻灯片7.PNG](accets\幻灯片7.PNG)
